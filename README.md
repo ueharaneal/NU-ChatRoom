@@ -1,16 +1,16 @@
-#About
+# About
 Utilizing python, this application will create a live chatroom where multiple users can communicate in real-time
 
-#Quickstart
+# Quickstart
  Install required packages
-    1.)Install Flask
-    'pip install flask'
+1.)Install Flask
+'pip install flask'
 
-    2.) install Flask-SocketIO
-    'pip install flask-socketio'
+2.)install Flask-SocketIO
+'pip install flask-socketio'
 
 
-#Tools Used
+# Tools Used
 -Python
 -Flask
 -SocketIO
