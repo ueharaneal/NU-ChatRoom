@@ -2,7 +2,7 @@
 - - -
 
 # About
-Utilizing python, this application will create a live chatroom where multiple users can communicate in real-time
+Utilizing python, this application will create a live chatroom where multiple users can communicate in real-time. You will be able to have multiple conversations with different people with designated chat rooms! 
 
 - - - 
 
