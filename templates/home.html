@@ -1,24 +1,50 @@
 {% extends 'base.html' %} {% block content %}
-<form method="post" class="buttons">
-  <h3>Enter The Chat Room</h3>
-  <div>
-    <label>Name:</label>
-    <input
-      type="text"
-      placeholder="Pick a name!"
-      name="name"
-      value="{{name}}"
-    />
+<!-- entire Screen -->
+<div class="bg-[#FFF5EE] h-screen w-screen">
+  <!-- Header -->
+  <div class="w-full flex h-16 items-center justify-center bg-[#6495ED] p-3 text-b-900 shadow-xl font-extrabold text-slate-900">
+    <p> <span class="font-extrabold">NU</span> ChatRoom</p>
   </div>
-  <div class="join">
-    <input type="text" placeholder="Room Code" name="code" value="{{code}}" />
-    <button type="submit" name="join">Join a Room</button>
+
+  <!-- Entire content -->
+  <div class="flex flex-row">
+    <!-- About -->
+    <div class="w-[60%] flex flex-col bg-[#FDF5E6] items-center">
+      <h1 class="text-lg md:text-2xl font-extrabold my-7">About</h1>
+      <div>
+
+      </div>
+
+
+    </div>
+    <!-- Chat Room form -->
+    <div class="flex flex-col items-center justify-center bg-[#E1EBEE]  rounded-lg w-[40%]"> 
+      <div class="p-10 ">
+        <form method="post" class="">
+          <h3 class="text-yellow-500">Enter The Chat Room!</h3>
+          <div>
+            <label>Name:</label>
+            <input
+              type="text"
+              placeholder="Pick a name!"
+              name="name"
+              value="{{name}}"
+            />
+          </div>
+          <div class="join">
+            <input type="text" placeholder="Room Code" name="code" value="{{code}}" />
+            <button type="submit" name="join">Join a Room</button>
+          </div>
+          <button type="submit" name="create" class="create-btn">Create a Room</button>
+          {% if error %}
+          <ul>
+            <li>{{error}}</li>
+          </ul>
+          {% endif %}
+        </form>
+      </div>
+    </div>
   </div>
-  <button type="submit" name="create" class="create-btn">Create a Room</button>
-  {% if error %}
-  <ul>
-    <li>{{error}}</li>
-  </ul>
-  {% endif %}
-</form>
+
+</div>
 {% endblock %}
