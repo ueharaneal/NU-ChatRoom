@@ -1,46 +1,124 @@
 {% extends 'base.html' %} {% block content %}
 <!-- entire Screen -->
-<div class="bg-[#FFF5EE] h-screen w-screen">
+<div class="bg-[#FFF5EE] h-screen w-screen relative overflow-hidden">
   <!-- Header -->
-  <div class="w-full flex h-16 items-center justify-center bg-[#6495ED] p-3 text-b-900 shadow-xl font-extrabold text-slate-900">
-    <p> <span class="font-extrabold">NU</span> ChatRoom</p>
+  <div class="w-full fixed flex h-24 z-20 items-center justify-between bg-[#6495ED] p-6 text-b-900 shadow-xl font-extrabold text-slate-900">
+    <div class="p-5 ml-24 bg-[#18144a] rounded-xl text-[#6495ED] md:text-4xl z-30">
+      <p> <span class="font-extrabold text-white">NU</span> Chat<span class="font-extrabold text-white">Room</spanRoom</p>
+    </div>
+      <!-- Social Links -->
+      <div class="mr-24 flex flex-row">
+        <a class="block text-base transform hover:-translate-y-2 duration-100 m-2" href="https://github.com/ueharaneal/NU-ChatRoom" target="_blank">
+          <i class="fa-brands fa-square-github text-5xl"></i>
+        </a>
+        <a class="block m-2 text-base transform hover:-translate-y-2 duration-100" href="https://www.linkedin.com/in/nealuehara/" target="_blank">
+          <i class="fa-brands fa-linkedin text-5xl"></i>
+        </a>
+
+      </div>
   </div>
 
   <!-- Entire content -->
   <div class="flex flex-row">
     <!-- About -->
-    <div class="w-[60%] flex flex-col bg-[#FDF5E6] items-center">
-      <h1 class="text-lg md:text-2xl font-extrabold my-7">About</h1>
-      <div>
+    <div class="w-[60%] mt-24 h-screen flex flex-col bg-[#FDF5E6] items-center overflow-auto">
+      <h1 class="text-lg md:text-4xl font-extrabold my-7 border-b-4 border-[#6495ED]">About</h1>
+        <div class="flex flex-col items-center">
+        <h2 class="font-bold md:text-xl mb-5">Summary</h2>
+        <p class="w-4/6 mb-10"> NU ChatRoom is an interactive, user-friendly web application designed for seamless communication in real-time. Built on the robust Flask framework and styled with Tailwind CSS for a sleek, responsive user interface, this application offers a dynamic environment for users to create and join chat rooms.</p>
+       
+        <h2 class="md:text-xl font-bold mb-5">Quick Start</h2>
 
+        <h3 class="w-4/6 font-semibold text-gray-900 mb-5 md:text-lg">Creating a room.</h3>
+        <ol type="I" class="w-4/6  space-y-2 mb-10 ml-4">
+          <li>1. Find the <span class="font-bold">"Create a ChatRoom"</span> form.</li>
+          <li>2. Input a name and press the <span class="font-bold">"Create a Room"</span> button.</li>
+          <li>3. Your new room will be created and the room number will be displayed on top for other users to join</li>
+          <li>4. Chat Away!.</li>
+        </ol>
+
+        <h2 class="font-bold mb-5 md:text-xl">Key Features:</h2>
+
+        <h3 class="w-4/6 font-semibold text-gray-900 mb-5">Room Creation and Joining:</h3>
+        <ul class="w-4/6 mb-10">
+          <li>Users can easily create new chat rooms, each assigned a unique room code.</li>
+          <li>Joining a room is as simple as entering the room code, enabling quick access to different chat spaces.</li>
+        </ul>
+
+        <h3 class="w-4/6 font-semibold text-gray-900">Real-Time Communication:</h3>
+        <ul class="w-4/6">
+          <li>Experience live, real-time interactions with others in the chat room.</li>
+          <li>The application ensures messages are instantly delivered, fostering an engaging conversation experience.</li>
+        </ul>
+
+
+        <h2 class="font-bold md:text-xl">Technology Used:</h2>
+        <ul class="w-4/6">
+          <li>Backend: Flask (Python-based web framework)</li>
+          <li>Frontend: Tailwind CSS for styling</li>
+          <li>Socket IO</li>
+        </ul>
+        
       </div>
 
 
     </div>
     <!-- Chat Room form -->
-    <div class="flex flex-col items-center justify-center bg-[#E1EBEE]  rounded-lg w-[40%]"> 
-      <div class="p-10 ">
+    <div class="fixed right-0 h-screen z-10 inset-y-0  top-24 flex flex-col  bg-[#E1EBEE]  rounded-lg w-[40%] shadow-xl"> 
+      <div class="m-5 flex space-x-2">
         <form method="post" class="">
-          <h3 class="text-yellow-500">Enter The Chat Room!</h3>
-          <div>
-            <label>Name:</label>
+          <div class=" p-3 my-5 bg-[#18144a] rounded-xl">
+            <h3 class="text-[#FFF5EE] font-bold md:text-3xl">Enter a <span class="text-[#6495ED]">Chat</span> Room</h3>
+          </div>
+          <div class="my-5 mt-8 text-base md:text-xl">
+            <label>Username:</label>
             <input
               type="text"
-              placeholder="Pick a name!"
-              name="name"
+              placeholder="Pick a Username!"
+              name="join_name"
               value="{{name}}"
+              class="ml-6 p-2 rounded-md outline-[#07286a]"
             />
           </div>
-          <div class="join">
-            <input type="text" placeholder="Room Code" name="code" value="{{code}}" />
-            <button type="submit" name="join">Join a Room</button>
+          <div class="join flex flex-col">
+            <div class="flex flex-row  items-center space-x-4 text-base md:text-xl mb-12">
+              <label>Room Code:</label>
+              <input type="text" placeholder="Room Code" name="code" value="{{code}}" class="ml-16 p-2 rounded-md outline-[#07286a]" />
+            </div>
+            
+              <button type="submit" name="join" class="space-x-2">
+                <div class="p-3 inline-block  bg-[#6495ED] group hover:bg-[#6d87c3]">
+                  Join  Room
+                  <i class="fa-solid fa-right-to-bracket transform group-hover:translate-x-1 duration-100"></i>
+                </div>
+              </button>
+        
+            
           </div>
-          <button type="submit" name="create" class="create-btn">Create a Room</button>
+          <!-- Create Room Form -->
+          <div class="mt-10 p-3 my-5 bg-[#18144a] rounded-xl">
+            <h3 class="text-[#FFF5EE] font-bold md:text-3xl">Create a <span class="text-[#6495ED]">Chat</span> Room</h3>
+          </div>
+          <div class="my-5 mt-8 text-base md:text-xl">
+            <label>Username:</label>
+            <input
+              type="text"
+              placeholder="Pick a Username!"
+              name="create_name"
+              value="{{name}}"
+              class="ml-6 p-2 rounded-md outline-[#07286a]"
+            />
+          </div>
+          <button type="submit" name="create" class="create-btn space-x-2">
+            Create a Room
+            <i class="fa-solid fa-plus"></i>
+          </button>
           {% if error %}
-          <ul>
-            <li>{{error}}</li>
-          </ul>
-          {% endif %}
+              <div class="bg-red-100 border border-red-400 text-red-700 inline-block mt-4 px-3 py-3 rounded  relative" role="alert">
+                <strong class="font-bold">Error:</strong>
+                <span class="block sm:inline">{{ error }}</span>
+              </div>
+              {% endif %}
         </form>
       </div>
     </div>
