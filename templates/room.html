@@ -1,19 +1,50 @@
 {% extends 'base.html' %} {% block content %}
-<div class="message-box">
-  <h2>Chat Room: {{code}}</h2>
-  <div class="messages" id="messages"></div>
-  <div class="inputs">
-    <input
-      type="text"
-      rows="3"
-      placeholder="Message"
-      name="message"
-      id="message"
-    />
-    <button type="button" name="send" id="send-btn" onClick="sendMessage()">
-      Send
-    </button>
+<!-- Entire Screen -->
+<div class="h-screen w-screen bg-[#FDF5E6] flex flex-col justify-center items-center">
+  <!-- Header -->
+  <div class="w-full flex h-24 z-20 items-center justify-between bg-[#6495ED] p-6 text-b-900 shadow-xl font-extrabold text-slate-900 relative">
+    <div class="p-5 ml-24 bg-[#18144a] rounded-xl text-[#6495ED] md:text-4xl z-30">
+      <p> <span class="font-extrabold text-white">NU</span> Chat<span class="font-extrabold text-white">Room</spanRoom</p>
+    </div>
+      <!-- Social Links -->
+      <div class="mr-24 flex flex-row">
+        <a class="block text-base transform hover:-translate-y-2 duration-100 m-2" href="https://github.com/ueharaneal/NU-ChatRoom" target="_blank">
+          <i class="fa-brands fa-square-github text-5xl"></i>
+        </a>
+        <a class="block m-2 text-base transform hover:-translate-y-2 duration-100" href="https://www.linkedin.com/in/nealuehara/" target="_blank">
+          <i class="fa-brands fa-linkedin text-5xl"></i>
+        </a>
+
+      </div>
   </div>
+  <!-- ChatBox -->
+  <div class="w-4/6 border-2 border-gray-800 h-full p-16 flex flex-col items-center">
+    <div class="flex flex-row justify-center">
+      <h2 class="font-bold text-lg md:text-2xl">Chat Room Number: <span class="font-extrabold border-b-4 border-[#6495ED]">{{code}}</span></h2>
+    </div>
+    <!-- Chat Messages -->
+    <div class="flex flex-col my-16 justify-between max-h-80 h-full z-40 w-full bg-white overflow-auto">
+      <div class="messages z-50" id="messages"></div>
+    </div>
+      <!-- message box -->
+      <div class="flex flex-row w-full">
+        <input
+          type="text"
+          rows="3"
+          placeholder="Message"
+          name="message"
+          id="message"
+          class="w-full border-2 border-gray-700 rounded-xl p-3 "
+        />
+        <div class="p-3 bg-[#6495ED] hover:bg-[#6d87c3] rounded-lg border-2 border-black ml-1">
+          <button type="button" name="send" id="send-btn" onClick="sendMessage()">
+            Send
+          </button>
+        </div>
+      </div>
+    
+  </div>
+
 </div>
 <script type="text/javascript">
   var socketio = io();
@@ -22,11 +53,11 @@
 
   const createMessage = (name, msg) => {
     const content = `
-    <div class="text">
-        <span>
-            <strong>${name}</strong>: ${msg}
+    <div class="flex flex-row justify-between space-2 space-x-10 mx-5">
+        <span class="space-x-2  max-w-4/5">
+            <strong class="text-lg md:text-xl">${name}:</strong> ${msg}
         </span>
-        <span class="muted">
+        <span class="text-gray-400 flex flex-row items-end text-xs md:text-sm white-space:nowrap ">
             ${new Date().toLocaleString()}
         </span>
     </div>

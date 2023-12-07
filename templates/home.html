@@ -33,8 +33,17 @@
         <ol type="I" class="w-4/6  space-y-2 mb-10 ml-4">
           <li>1. Find the <span class="font-bold">"Create a ChatRoom"</span> form.</li>
           <li>2. Input a name and press the <span class="font-bold">"Create a Room"</span> button.</li>
-          <li>3. Your new room will be created and the room number will be displayed on top for other users to join</li>
+          <li>3. Your new room will be created and the room number will be displayed on the top for other users to join</li>
           <li>4. Chat Away!.</li>
+        </ol>
+
+        <h3 class="w-4/6 font-semibold text-gray-900 mb-5 md:text-lg">Joining a room.</h3>
+        <ol type="I" class="w-4/6  space-y-2 mb-10 ml-4">
+          <li>1. Find the <span class="font-bold">"Enter a ChatRoom"</span> form.</li>
+          <li>2. Input a username and the desired room number.</li>
+          <li>3. Press the <span class="font-bold">"Create a Room"</span> button.</li>
+          <li>4. You will now join that room and the room number will be displayed on the top for other users to join</li>
+          <li>5. Chat Away!.</li>
         </ol>
 
         <h2 class="font-bold mb-5 md:text-xl">Key Features:</h2>
@@ -52,11 +61,11 @@
         </ul>
 
 
-        <h2 class="font-bold md:text-xl">Technology Used:</h2>
-        <ul class="w-4/6">
-          <li>Backend: Flask (Python-based web framework)</li>
-          <li>Frontend: Tailwind CSS for styling</li>
-          <li>Socket IO</li>
+        <h2 class="font-bold md:text-xl my-5 ">Technology Used:</h2>
+        <ul class="w-4/6 pb-32">
+          <li><span class="font-semibold">Backend:</span> Flask (Python-based web framework)</li>
+          <li><span class="font-semibold">Frontend:</span> Tailwind CSS for styling</li>
+          <li><span class="font-semibold">Socket IO:</span> Real time interactions</li>
         </ul>
         
       </div>
@@ -81,44 +90,48 @@
             />
           </div>
           <div class="join flex flex-col">
-            <div class="flex flex-row  items-center space-x-4 text-base md:text-xl mb-12">
+            <div class="flex flex-row  items-center space-x-4 text-base md:text-xl mb-8">
               <label>Room Code:</label>
               <input type="text" placeholder="Room Code" name="code" value="{{code}}" class="ml-16 p-2 rounded-md outline-[#07286a]" />
             </div>
             
               <button type="submit" name="join" class="space-x-2">
                 <div class="p-3 inline-block  bg-[#6495ED] group hover:bg-[#6d87c3]">
-                  Join  Room
-                  <i class="fa-solid fa-right-to-bracket transform group-hover:translate-x-1 duration-100"></i>
+                  Join Room
+                  <i class="fa-solid fa-right-to-bracket px-2 transform group-hover:translate-x-1 duration-100 "></i>
                 </div>
               </button>
         
             
           </div>
           <!-- Create Room Form -->
-          <div class="mt-10 p-3 my-5 bg-[#18144a] rounded-xl">
-            <h3 class="text-[#FFF5EE] font-bold md:text-3xl">Create a <span class="text-[#6495ED]">Chat</span> Room</h3>
-          </div>
-          <div class="my-5 mt-8 text-base md:text-xl">
-            <label>Username:</label>
-            <input
-              type="text"
-              placeholder="Pick a Username!"
-              name="create_name"
-              value="{{name}}"
-              class="ml-6 p-2 rounded-md outline-[#07286a]"
-            />
-          </div>
-          <button type="submit" name="create" class="create-btn space-x-2">
-            Create a Room
-            <i class="fa-solid fa-plus"></i>
-          </button>
-          {% if error %}
-              <div class="bg-red-100 border border-red-400 text-red-700 inline-block mt-4 px-3 py-3 rounded  relative" role="alert">
-                <strong class="font-bold">Error:</strong>
-                <span class="block sm:inline">{{ error }}</span>
+          <div class="flex flex-col items-center mt-8">
+            <div class="mt-6 p-3 w-full my-5 bg-[#18144a] rounded-xl">
+              <h3 class="text-[#FFF5EE] font-bold md:text-3xl">Create a <span class="text-[#6495ED]">Chat</span> Room</h3>
+            </div>
+            <div class="my-5 mt-8 text-base md:text-xl">
+              <label>Username:</label>
+              <input
+                type="text"
+                placeholder="Pick a Username!"
+                name="create_name"
+                value="{{name}}"
+                class="ml-6 mb-3 p-2 rounded-md outline-[#07286a]"
+              />
+            </div>
+            <button type="submit" name="create" class="create-btn space-x-2">
+              <div class="p-3 inline-block  bg-[#6495ED] group hover:bg-[#6d87c3]">
+                Create a Room
+                <i class="fa-solid fa-plus transform group-hover:translate-x-1 duration-100"></i>
               </div>
-              {% endif %}
+            </button>
+            {% if error %}
+                <div class="bg-red-100 border border-red-400 text-red-700 inline-block mt-4 px-3 py-3 rounded  relative" role="alert">
+                  <strong class="font-bold">Error:</strong>
+                  <span class="block sm:inline">{{ error }}</span>
+                </div>
+                {% endif %}
+          </div>
         </form>
       </div>
     </div>
