@@ -10,8 +10,10 @@ Utilizing python, this application will create a live chatroom where multiple us
  Install required packages.
 1. Install **Flask***
 'pip install flask'
+or
+'pip install flask'
 
-2. Install **Flask-SocketIO** 
+3. Install **Flask-SocketIO** 
 'pip install flask-socketio'
 
 - - - 
